@@ -1,0 +1,9 @@
+disassemble main
+pwndbg 
+vi
+ls
+rop
+run < shellz.txt
+run < shellz.txt 
+run < shellz.txt 
+run < shellz.txt 
