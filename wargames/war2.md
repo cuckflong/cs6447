@@ -107,7 +107,7 @@ _General overview of problems faced:_
 1. Have to figure how the player struct is ordered and what the attributes are
 2. Have to find where the format string vulnerability is which is when you win the gamble and where the string is from which is the player's name
 3. Have to find out what to overwrite which I chose the putchar function in the GOT as it will not affect any useful functions
-4. Have to find the address storing the putchar function, I used the address of the player's name and the offset of it the the GOT to get putchar's function address
+4. Have to find the address storing the putchar function, I used the address of the player's name and the offset of it to the GOT to get putchar's function address
 5. Have to keep gambling until I win so as to exploit the format string
 
 _List of vulnerabilities:_    
