@@ -51,6 +51,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+.gdb_history
 core
 .vscode/
 .DS_Store
