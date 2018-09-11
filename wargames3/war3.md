@@ -267,10 +267,10 @@ _General overview of problems faced:_
 _List of vulnerabilities:_
 1. User's input can overwrite the ESP value when return
 
-_Step to exploit:_
+_Steps to exploit:_
 1. Calcuate the system call in libc and the string _"/bin/sh"_ with offsets to the leaked address using the  libc database
 2. Fill the buffer with ret sled then the system call to _"/bin/sh"_ all packed in a size of 1337 bytes
-3. The last byte of ESP will be partially overwriten with _"0x0a"_ and point back to the ret sled in the buffer
+3. The last byte of ESP will be partially overwritten with _"0x0a"_ and point back to the ret sled in the buffer
 
 _Script/Command used:_
 ```python
@@ -322,7 +322,7 @@ None
 _List of vulnerabilities:_
 1. User's input can overwrite the return address
 
-_Step to exploit:_
+_Steps to exploit:_
 1. Find the addresses of _"/bin/bash"_ and system call in the binary
 2. Overwrite the return address with the system call then the address of _"/bin/bash"_ after
 
@@ -364,7 +364,7 @@ _General overview of problems faced:_
 _List of vulnerabilities:_
 1. User's input can overwrite the return address
 
-_Step to exploit:_
+_Steps to exploit:_
 1. The first part of the rop chain is the change the global variable storing the stack protection permission to 7 which makes it executable
 2. The second part of the rop chain is to put the global variable _"libc-stack-end"_ in EAX then call the stack protection function
 3. The third part of the rop chain is to move the ESP to an executable address by keep calling a _"ret"_ gadget
@@ -426,9 +426,9 @@ _General overview of problems faced:_
 None
 
 _List of vulnerabilities:_
-1. Not reallt a vulnerability, it just execute my shellcode but can't used anything syscall other than read and write
+1. Not really a vulnerability, it just execute my shellcode but can't used anything syscall other than read and write
 
-_Step to exploit:_
+_Steps to exploit:_
 1. Write my shellcode
 2. Send my shellcode
 
@@ -477,9 +477,9 @@ _General overview of problems faced:_
 None
 
 _List of vulnerabilities:_
-1. Not reallt a vulnerability, it just execute my shellcode but can't used anything syscall other than read and write
+1. Not really a vulnerability, it just execute my shellcode but can't used anything syscall other than read and write
 
-_Step to exploit:_
+_Steps to exploit:_
 1. Since the address of the big buffer can be found with an offset from the ESP, the small shellcode will simply call to that address
 2. The big shellcode will be the same as simple
 
