@@ -1,0 +1,12 @@
+malloc 2: 
+size: 59
+initial:
+0-16: 0xff
+25-37: 0xff
+42-54: 0xff
+offsets:
++17: size
++21: weight
++38: puts symbol address
++55: address of the first malloc 1 with size 59 || name
+
